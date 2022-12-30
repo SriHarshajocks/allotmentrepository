@@ -11,9 +11,11 @@ public interface allotmentService {
 
 	public allotment viewPatientById(Long patientId);
 
-	public void updateDoctor(Long doctorId);
+	public void updateDoctor(allotment doctorId);
 
-	public void updateDepartment();
+	public void updateDepartment(allotment allotment);
 
-	public void updateTreatmentById(Long patientId, Long allotmentId);
+	public void updateTreatmentByPatientId(Long patientId);
+	
+	public void updateTreatmentByAllotmentId(Long allotmentId);
 }

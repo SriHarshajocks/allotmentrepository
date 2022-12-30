@@ -18,6 +18,7 @@ public class allotment {
 	private Long doctorId;
 	private Date dateOfAllotment;
 	private String treatment;
+	private Long departmentId;
 	
 
 	public Long getAllotmentId() {
@@ -59,5 +60,15 @@ public class allotment {
 	public void setTreatment(String treatment) {
 		this.treatment = treatment;
 	}
+
+	public Long getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(Long departmentId) {
+		this.departmentId = departmentId;
+	}
+	
+	
 
 }

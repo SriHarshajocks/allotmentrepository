@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.model.allotment;
 import com.example.repository.allotmentRepository;
+import com.paperlesshospital.patient.model.Patient;
 
 @Service
 public class allotmentServiceImp implements allotmentService {
@@ -14,56 +15,57 @@ public class allotmentServiceImp implements allotmentService {
 	@Override
 	public void addallotment(allotment allotment) {
 		allotmentRepository.save(allotment);
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public allotment viewDoctorById(Long doctorId) {
 		return allotmentRepository.findById(doctorId).orElse(null);
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public allotment viewDoctorByName(String doctorName) {
-		return allotmentRepository.findByName(doctorName).or;
+		return allotmentRepository.findByName(doctorName);
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public allotment viewPatientById(Long patientId) {
+		
 		return allotmentRepository.findById(patientId).orElse(null);
-		
-		// TODO Auto-generated method stub
-		
+				
 	}
 
 	@Override
-	public void updateDoctor(Long doctorId) {
-		allotment allotmentToUpdate = allotmentRepository.findById(allotment.getDoctorId()).orElse(null);
-		allotmentToUpdate.setDepAdmin(allotment.getDoctorId());
+	public void updateDoctor(allotment allotment) {
+		allotment doctorToUpdate = allotmentRepository.findById(allotment.getDoctorId()).orElse(null);
+		doctorToUpdate.setDoctorId(allotment.getDoctorId());
 		//patientToUpdate.setPatientName(patient.getPatientName());
-		patientRepository.save(patientToUpdate);
-		
-		
+		allotmentRepository.save(doctorToUpdate);
+	}
+
+	@Override
+	public void updateDepartment(allotment allotment) {
+		allotment departmentToUpdate = allotmentRepository.findById(allotment.getDepartmentId()).orElse(null);
+		departmentToUpdate.setDepartmentId(allotment.getDepartmentId());
+		allotmentRepository.save(departmentToUpdate);
 		
 	}
 
 	@Override
-	public void updateDepartment() {
-		allotmentRepository.update();
-		// TODO Auto-generated method stub
+	public void updateTreatmentByPatientId(Long patientId) {
+		
+		allotmentRepository.findById(patientId).orElse(null);
 		
 	}
-
+	
 	@Override
-	public void updateTreatmentById(Long patientId, Long allotmentId) {
-		return allotmentRepository.viewById(patientId, allotmentId);
-		// TODO Auto-generated method stub
+	public void updateTreatmentByAllotmentId(Long allotmentId) {
+		
+		allotmentRepository.findById(allotmentId).orElse(null);
 		
 	}
-
 	
 
 }
